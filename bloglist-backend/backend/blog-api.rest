@@ -1,0 +1,75 @@
+### Add a new blog
+POST http://127.0.0.1:3001/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InJvb3QiLCJpZCI6IjY4ODU2ODVlMWQ4MzU1N2IxNDY5M2IyYiIsImlhdCI6MTc1MzY0Nzc2NX0.jKcqlJbvszCy80ctPoe6Z1gktuKwjzdfTfh8z5C6PrE
+
+{
+  "title": "My first blog",
+  "author": "Jane Doe",
+  "url": "https://example.com",
+  "likes": 10,
+  "userId": "6885685e1d83557b14693b2b"
+}
+
+###
+
+### Get all blogs
+GET http://127.0.0.1:3001/api/blogs
+
+### post new user
+POST http://127.0.0.1:3001/api/users
+Content-Type: application/json
+
+{
+    "username": "root",
+    "name": "Superuser",
+    "password": "salainen"
+}
+
+### Create second user
+POST http://127.0.0.1:3001/api/users
+Content-Type: application/json
+
+{
+  "username": "user2",
+  "name": "Second User",
+  "password": "password2"
+}
+
+### Create a blog with second user ID
+POST http://127.0.0.1:3001/api/blogs
+Content-Type: application/json
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWQiOiI2ODg2YTk3Yzg3ZmM1NzI3NzAxMDc4NjYiLCJpYXQiOjE3NTM2NTc4NTQsImV4cCI6MTc1MzY2MTQ1NH0.65pty6IJmebiLL0aeErvrEHruAXu4386hr90F1W_CZw
+
+{
+  "title": "Blog by second user",
+  "author": "Second User",
+  "url": "http://example.com/blog2",
+  "likes": 10,
+  "userId": "6886a97c87fc572770107866"
+}
+
+### Deletion of User 2
+DELETE http://127.0.0.1:3001/api/blogs/6886ab8be2807a70867a40ec
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIyIiwiaWQiOiI2ODg2YTk3Yzg3ZmM1NzI3NzAxMDc4NjYiLCJpYXQiOjE3NTM2NTc4NTQsImV4cCI6MTc1MzY2MTQ1NH0.65pty6IJmebiLL0aeErvrEHruAXu4386hr90F1W_CZw
+
+### Get all Users
+GET http://127.0.0.1:3001/api/users
+
+### login in with user
+POST http://127.0.0.1:3001/api/login
+Content-Type: application/json
+
+{
+    "username": "user2",
+    "password": "password2"
+}
+
+### login in with incorrect user
+POST http://127.0.0.1:3001/api/login
+Content-Type: application/json
+
+{
+    "username": "root",
+    "password": "wrong"
+}
