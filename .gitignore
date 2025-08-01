@@ -1,7 +1,9 @@
 *.json
 *.json
 .env
-.rest
+*.rest
+
+
 
 # Playwright
 node_modules/
